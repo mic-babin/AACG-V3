@@ -1,5 +1,5 @@
 import styled from "styled-components";
-// import Modal from "react-bootstrap/Modal"
+import Modal from "react-bootstrap/Modal";
 
 export const ModalButton = styled.p`
   cursor: pointer;
@@ -9,12 +9,12 @@ export const ModalButton = styled.p`
   font-size: 20px;
 `;
 
-// export const ModalCard = styled(Modal)`
-//   cursor: default;
-//   .modal-content {
-//     background-color: #eeede8;
-//   }
-// `
+export const ModalCard = styled(Modal)`
+  cursor: default;
+  .modal-content {
+    background-color: #eeede8;
+  }
+`;
 
 export const Section = styled.section`
   .modal-body {
