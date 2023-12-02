@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
+import Carousel from "react-multi-carousel";
 import { Style } from "./bio-carousel.styles";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import {
@@ -32,7 +31,7 @@ const BioCarousel = (props) => {
         variants={fadeRightBioCarouselVariants}
         transition={{ duration: 0.75, delay: 1 }}
       >
-        {/* {imgArr && (
+        {imgArr && (
           <Carousel
             responsive={customOptions.responsive}
             infinite={customOptions.infinite}
@@ -66,7 +65,7 @@ const BioCarousel = (props) => {
               </div>
             ))}
           </Carousel>
-        )} */}
+        )}
       </motion.div>
     </Style>
   );

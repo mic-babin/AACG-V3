@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css"
+import Carousel from "react-multi-carousel";
 import { Style } from "./hero-carousel.styles";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import RedSrc from "../../../../assets/img/shapes/red-3.svg";
@@ -52,7 +51,7 @@ const HeroCarousel = ({ heroArr }) => {
         variants={fadeRightCarouselVariants}
         transition={{ duration: 0.75, delay: 1 }}
       >
-        {/* {heroArr && (
+        {heroArr && (
           <Carousel
             responsive={customOptions.responsive}
             infinite={customOptions.infinite}
@@ -86,7 +85,7 @@ const HeroCarousel = ({ heroArr }) => {
               </div>
             ))}
           </Carousel>
-        )} */}
+        )}
       </motion.div>
     </Style>
   );
