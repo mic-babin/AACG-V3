@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Section = styled.section`
   .p-holder {
@@ -28,6 +28,13 @@ export const Section = styled.section`
     width: 100vw;
     overflow-x: hidden;
   }
+  h1 {
+    line-height: 1.2;
+  }
+
+  h2 {
+    line-height: 30px;
+  }
 
   @media only screen and (max-width: 767px) {
     h1 {
@@ -43,4 +50,4 @@ export const Section = styled.section`
       font-size: 22px !important;
     }
   }
-`
+`;

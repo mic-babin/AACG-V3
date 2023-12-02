@@ -381,18 +381,9 @@ main.nav a.active::after {
   transition: opacity 0.3s ease-in-out !important;
 }
 
-::-webkit-scrollbar {
-  background-color: var(--teal);
-  width: 8px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #4190d5;
-}
-
 ::selection {
   color: #ffffff !important;
-  background-color: #4190d5 !important;
+  background-color: var(--teal) !important;
 }
 
 /* Footer */
