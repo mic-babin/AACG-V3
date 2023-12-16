@@ -1,18 +1,18 @@
-import React, { useEffect, useRef } from "react"
-import Red5Src from "../../../assets/img/shapes/red-5.svg"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Style } from "./instagram.style"
-import { useStaticQuery, graphql } from "gatsby"
-import { sortByDescription } from "../../../utils/sort-by-description"
-import { Parallax } from "react-scroll-parallax"
-import { motion } from "framer-motion"
+import React, { useEffect, useRef } from "react";
+import Red5Src from "../../../assets/img/shapes/red-5.svg";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { Style } from "./instagram.style";
+import { useStaticQuery, graphql } from "gatsby";
+import { sortByDescription } from "../../../utils/sort-by-description";
+import { Parallax } from "react-scroll-parallax";
+import { motion } from "framer-motion";
 import {
   fadeUpVariants,
   fadeInVariants,
-} from "../../../assets/animations/animations"
+} from "../../../assets/animations/animations";
 
 const Instagram = ({ followTitle, followText }) => {
-  const wrapperRef = useRef(null)
+  const wrapperRef = useRef(null);
 
   const data = useStaticQuery(graphql`
     query {
@@ -25,75 +25,75 @@ const Instagram = ({ followTitle, followText }) => {
         }
       }
     }
-  `)
+  `);
 
-  const imagesArr = data.allWpMediaItem.nodes
-  const images = sortByDescription(imagesArr)
+  const imagesArr = data.allWpMediaItem.nodes;
+  const images = sortByDescription(imagesArr);
 
   const animateIn = {
     initial: "hidden",
     whileInView: "visible",
     viewport: { once: true },
-  }
+  };
 
   const textAnimation = {
     ...animateIn,
     variants: fadeUpVariants,
     transition: { duration: 0.5, delay: 0.5 },
-  }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
       images.forEach((_, i) => {
-        const img = wrapperRef.current?.querySelector(`.img-${i}`)
+        const img = wrapperRef.current?.querySelector(`.img-${i}`);
         let rateImg =
-          -window.pageYOffset * getImgRate(i) + getImgInitialOffset(i)
+          -window.pageYOffset * getImgRate(i) + getImgInitialOffset(i);
         if (img) {
-          img.style.transform = `translateY(${rateImg}px)`
+          img.style.transform = `translateY(${rateImg}px)`;
         }
-      })
-    }
+      });
+    };
 
-    const getImgRate = index => {
+    const getImgRate = (index) => {
       switch (index) {
         case 0:
-          return 0.02
+          return 0.02;
         case 1:
-          return 0.05
+          return 0.05;
         case 2:
-          return 0.08
+          return 0.08;
         case 3:
-          return 0.03
+          return 0.03;
         case 4:
-          return 0.06
+          return 0.06;
         case 5:
-          return 0.06
+          return 0.06;
       }
-    }
+    };
 
-    const getImgInitialOffset = index => {
+    const getImgInitialOffset = (index) => {
       switch (index) {
         case 0:
-          return 60
+          return 60;
         case 1:
-          return 200
+          return 200;
         case 2:
-          return 280
+          return 280;
         case 3:
-          return 230
+          return 230;
         case 4:
-          return 270
+          return 270;
         case 5:
-          return 270
+          return 270;
       }
-    }
+    };
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll)
-    }
-  }, [images])
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [images]);
 
   return (
     <Style className="bg-pink pb-5 pb-sm-0" ref={wrapperRef}>
@@ -153,7 +153,7 @@ const Instagram = ({ followTitle, followText }) => {
         </div>
       </div>
     </Style>
-  )
-}
+  );
+};
 
-export default Instagram
+export default Instagram;

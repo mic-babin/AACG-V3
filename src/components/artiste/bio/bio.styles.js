@@ -1,4 +1,4 @@
-import { styled } from "styled-components"
+import { styled } from "styled-components";
 
 export const Section = styled.div`
   .bio-wrapper {
@@ -21,6 +21,8 @@ export const Section = styled.div`
     padding-top: 150px;
     line-height: 1.2;
     max-width: 800px;
+    margin-bottom: 0;
+    margin-top: 2rem;
   }
 
   h2 {
@@ -28,12 +30,22 @@ export const Section = styled.div`
   }
 
   .p-title {
-    padding-top: 340px;
+    padding-top: 320px;
   }
-
+  @media only screen and (max-width: 991px) {
+    h1 {
+      padding-top: 130px;
+    }
+  }
   @media only screen and (max-width: 767px) {
     .p-title {
-      padding-top: 390px;
+      padding-top: 330px;
+    }
+  }
+
+  @media only screen and (max-width: 410px) {
+    button {
+      padding: 0.66rem 1.8rem;
     }
   }
 
@@ -48,7 +60,7 @@ export const Section = styled.div`
 
   .red-2 {
     position: absolute;
-    top: 110px;
+    top: 70px;
     left: -30px;
     z-index: -1;
   }
@@ -97,11 +109,11 @@ export const Section = styled.div`
       font-size: 50px !important;
     }
     .p-title {
-      padding-top: 360px;
+      padding-top: 300px;
     }
   }
 
   #fade-right {
     opacity: 0;
   }
-`
+`;

@@ -1,77 +1,84 @@
-import React from "react"
-import { graphql } from "gatsby"
-import { ParallaxProvider } from "react-scroll-parallax"
-import Layout from "../components/layout"
-import Seo from "../components/seo"
-import HomeHero from "../components/home/hero/hero.component"
-import About from "../components/home/about/about.component"
-import Pictures from "../components/home/pictures/pictures.component"
-import Team from "../components/home/team/team.component"
-import Instagram from "../components/home/instagram/instagram.component"
+import React from "react";
+import { graphql } from "gatsby";
+import { ParallaxProvider } from "react-scroll-parallax";
+import Layout from "../components/layout";
+import Seo from "../components/seo";
+import HomeHero from "../components/home/hero/hero.component";
+import About from "../components/home/about/about.component";
+import Pictures from "../components/home/pictures/pictures.component";
+import Team from "../components/home/team/team.component";
+import Instagram from "../components/home/instagram/instagram.component";
 
 const Home = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
-  const homeDataArr = data.allWpPost.nodes[0].content.split("<p>")
-  const media = data.allWpMediaItem.nodes
+  const siteTitle = data.site.siteMetadata.title;
+  const homeDataArr = data.allWpPost.nodes[0].content.split("<p>");
+  const media = data.allWpMediaItem.nodes;
+  const artistes = data.artistes.nodes;
+  const tags = data.allWpTag.nodes;
   const missionTitle = homeDataArr
-    .filter(element => element.includes("#missionTitre"))[0]
+    .filter((element) => element.includes("#missionTitre"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
   const missionSubtitle = homeDataArr
-    .filter(element => element.includes("#missionSousTitre"))[0]
+    .filter((element) => element.includes("#missionSousTitre"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
   const missionText1 = homeDataArr
-    .filter(element => element.includes("#missionTexte1"))[0]
+    .filter((element) => element.includes("#missionTexte1"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
   const missionText2 = homeDataArr
-    .filter(element => element.includes("#missionTexte2"))[0]
+    .filter((element) => element.includes("#missionTexte2"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
   const missionText3 = homeDataArr
-    .filter(element => element.includes("#missionTexte3"))[0]
+    .filter((element) => element.includes("#missionTexte3"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
   const missionText4 = homeDataArr
-    .filter(element => element.includes("#missionTexte4"))[0]
+    .filter((element) => element.includes("#missionTexte4"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
 
   const title = homeDataArr
-    .filter(element => element.includes("#titre"))[0]
+    .filter((element) => element.includes("#titre"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
 
   const employeeTitle = homeDataArr
-    .filter(element => element.includes("#equipeTitre"))[0]
+    .filter((element) => element.includes("#equipeTitre"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
   const employeeText = homeDataArr
-    .filter(element => element.includes("#equipeTexte"))[0]
+    .filter((element) => element.includes("#equipeTexte"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
   // const  media,
   const telephone = homeDataArr
-    .filter(element => element.includes("#telephone"))[0]
+    .filter((element) => element.includes("#telephone"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
   const email = homeDataArr
-    .filter(element => element.includes("#email"))[0]
+    .filter((element) => element.includes("#email"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
 
   const followTitle = homeDataArr
-    .filter(element => element.includes("#suivreTitre"))[0]
+    .filter((element) => element.includes("#suivreTitre"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
   const followText = homeDataArr
-    .filter(element => element.includes("#suivreTexte"))[0]
+    .filter((element) => element.includes("#suivreTexte"))[0]
     .split("=")[1]
-    .split("</p>")[0]
+    .split("</p>")[0];
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout
+      location={location}
+      title={siteTitle}
+      artistes={artistes}
+      tags={tags}
+    >
       <ParallaxProvider>
         <Seo title="Agence Artistique Corinne Giguère" />
         <HomeHero title={title} media={media} />
@@ -93,10 +100,10 @@ const Home = ({ data, location }) => {
         <Instagram followTitle={followTitle} followText={followText} />
       </ParallaxProvider>
     </Layout>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
 
 export const pageQuery = graphql`
   query {
@@ -121,5 +128,41 @@ export const pageQuery = graphql`
         gatsbyImage(width: 1000, placeholder: BLURRED)
       }
     }
+    allWpTag {
+      nodes {
+        id
+        name
+        description
+        databaseId
+      }
+    }
+    artistes: allWpPost(
+      filter: {
+        categories: { nodes: { elemMatch: { name: { in: "artistes" } } } }
+      }
+    ) {
+      nodes {
+        id
+        title
+        slug
+        content
+        tags {
+          nodes {
+            id
+            name
+          }
+        }
+        featuredImage {
+          node {
+            gatsbyImage(height: 400)
+          }
+        }
+        categories {
+          nodes {
+            name
+          }
+        }
+      }
+    }
   }
-`
+`;

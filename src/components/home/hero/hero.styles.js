@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Style = styled.div`
   overflow: visible;
@@ -9,6 +9,7 @@ export const Style = styled.div`
     left: 0;
     height: 800px !important;
     background-color: var(--teal);
+    z-index: 1;
 
     div {
       position: absolute;
@@ -30,10 +31,10 @@ export const Style = styled.div`
     }
   }
 
-  @media only screen and (min-width: 992px) and(max-width: 1200px) {
+  @media only screen and (max-width: 1200px) {
     h1 {
-      font-size: 63px !important;
-      line-height: 85px;
+      font-size: 63px;
+      line-height: 80px;
     }
   }
   @media only screen and (max-width: 992px) {
@@ -47,6 +48,7 @@ export const Style = styled.div`
       background-color: #406b635b;
       margin: 0 !important;
       max-width: 100vw;
+      font-size: 80px;
     }
 
     .scroll-down {
@@ -58,13 +60,14 @@ export const Style = styled.div`
   @media only screen and (max-width: 767px) {
     h1 {
       padding-top: 22vh !important;
-      line-height: 100px !important;
+      line-height: 85px !important;
     }
   }
   @media only screen and (max-width: 575px) {
     h1 {
-      padding-top: 22vh !important;
-      line-height: 80px !important;
+      top: 96px !important;
+      padding-top: 25vh !important;
+      line-height: 70px !important;
       padding-left: 1.5rem !important;
       height: 92vh !important;
     }
@@ -75,8 +78,8 @@ export const Style = styled.div`
 
   @media only screen and (max-width: 400px) {
     h1 {
-      padding-top: 17vh !important;
-      line-height: 80px !important;
+      padding-top: 21vh !important;
+      line-height: 67px !important;
       padding-left: 1rem !important;
     }
   }
@@ -111,4 +114,4 @@ export const Style = styled.div`
       transform: translatey(0px);
     }
   }
-`
+`;

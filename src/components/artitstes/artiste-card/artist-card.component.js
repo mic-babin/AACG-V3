@@ -14,7 +14,7 @@ const ArtisteCard = ({ artist }) => {
   return (
     <div className="artist-card col-lg-4 col-md-6  ">
       <motion.div
-        className="px-4 py-3 z-2"
+        className="px-2 mx-1 py-3 z-2"
         initial="hidden"
         whileInView="visible"
         variants={littleFadeUpVariants}

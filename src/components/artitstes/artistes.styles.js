@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 export const Section = styled.section`
   .artist-card img {
     width: 100%;
@@ -67,6 +67,9 @@ export const Section = styled.section`
   }
 
   @media only screen and (max-width: 991px) {
+    h1 {
+      line-height: 85px;
+    }
     .artist-card:nth-child(3n - 1) {
       transform: translateY(0px);
     }
@@ -77,6 +80,9 @@ export const Section = styled.section`
   }
 
   @media only screen and (max-width: 767px) {
+    h1 {
+      line-height: 67px;
+    }
     .artist-card:nth-child(2n) {
       transform: translateY(0px);
     }
@@ -86,11 +92,20 @@ export const Section = styled.section`
   }
 
   @media only screen and (max-width: 575px) {
+    h1 {
+      line-height: 45px;
+    }
     .artist-card:nth-child(2n) {
       transform: translateY(0px);
     }
     .artist-card img {
       height: 500px;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    h1 {
+      line-height: 40px;
     }
   }
 
@@ -137,4 +152,4 @@ export const Section = styled.section`
     height: 30px;
     width: 30px;
   }
-`
+`;

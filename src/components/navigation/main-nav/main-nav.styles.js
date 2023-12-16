@@ -1,5 +1,5 @@
-import { motion } from "framer-motion"
-import styled from "styled-components"
+import { motion } from "framer-motion";
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -30,8 +30,8 @@ export const Wrapper = styled.div`
 
   .search-results-wrapper {
     position: absolute;
-    top: 30px;
-    right: 0;
+    top: 50px;
+    right: 4px;
     display: block;
     width: 300px;
     margin: 0;
@@ -82,15 +82,15 @@ export const Wrapper = styled.div`
     font-size: 12px !important;
     font-weight: 400 !important;
   }
-`
+`;
 
 export const Logo = styled(motion.img)`
   height: 4rem;
-`
+`;
 
 export const LinkList = styled.div`
   display: flex;
-`
+`;
 
 export const Button = styled(motion.div)`
   display: flex;
@@ -145,9 +145,9 @@ export const Button = styled(motion.div)`
       }
     }
   }
-`
+`;
 
 export const SearchInput = styled(motion.div)`
   width: 0;
-`
-export const SearchWrapper = styled.span``
+`;
+export const SearchWrapper = styled.span``;

@@ -5,13 +5,13 @@ export const BurgerIcon = styled(motion.div)`
   height: 50px;
   width: 50px;
   right: 30px;
-  top: 50px;
+  top: 22px;
   position: fixed;
   z-index: 1000;
 
   @media (max-width: 576px) {
     right: 18px;
-    top: 42px;
+    top: 22px;
   }
   @media (max-width: 400px) {
     right: 12px;
@@ -56,7 +56,7 @@ export const BurgerIcon = styled(motion.div)`
       display: block;
       width: 100%;
       height: 1px; // 2 for bolder
-      background-color: #2b2929;
+      background-color: #ffffff;
       border-radius: 1px;
       transition: all 0.2s cubic-bezier(0.1, 0.82, 0.76, 0.965);
 
@@ -115,8 +115,12 @@ export const customStyles = {
     background: "transparent",
     overflow: "hidden",
     position: "fixed",
+    border: "none",
+    borderRadius: "0px",
   },
+
   overlay: {
-    backgroundColor: "rgba(0,0,0,0.3)",
+    backgroundColor: "transparent",
+    zIndex: "2",
   },
 };

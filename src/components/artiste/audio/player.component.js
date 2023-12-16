@@ -9,8 +9,6 @@ const Player = ({ audio }) => {
   const audioPlayerRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  //   console.log(audioPlayerRef.current.audio.current)
-
   useEffect(() => {
     if (audioPlayerRef) {
       if (isPlaying) {

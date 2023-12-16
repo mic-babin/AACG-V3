@@ -1,27 +1,27 @@
-import React from "react"
-import { Style } from "./hero.styles"
-import ArrowSrc from "../../../assets/img/icons/WhiteRoundArrow.png"
-import HeroCarousel from "./hero-carousel/hero-carousel.component"
-import { motion } from "framer-motion"
+import React from "react";
+import { Style } from "./hero.styles";
+import ArrowSrc from "../../../assets/img/icons/WhiteRoundArrow.png";
+import HeroCarousel from "./hero-carousel/hero-carousel.component";
+import { motion } from "framer-motion";
 import {
   veryLittleFadeUpVariants,
   littleFadeUpVariants,
-} from "../../../assets/animations/animations"
+} from "../../../assets/animations/animations";
 
 const HomeHero = ({ title, media }) => {
   const scrollTo = () => {
-    document.getElementById("about").scrollIntoView({ behavior: "smooth" })
-  }
+    document.getElementById("about").scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
     <Style className="custom-height home-hero-wrapper">
       <div className="h-100">
-        <div className="container">
+        <div className="container-lg">
           <div className="p-holder">
             <div className="ovy">
-              <h1 className="ps-7 mt-3">
+              <h1 className="ps-7 mt-3 main-title">
                 {title.split(" ").map((word, i) => (
-                  <span className="overflow-hidden d-inline-block me-3">
+                  <span className="overflow-hidden d-inline-block">
                     <motion.span
                       key={i}
                       className={`overflow-hidden d-inline-block me-3`}
@@ -71,7 +71,7 @@ const HomeHero = ({ title, media }) => {
         </div>
       </div>
     </Style>
-  )
-}
+  );
+};
 
-export default HomeHero
+export default HomeHero;

@@ -15,7 +15,6 @@ const BioCarousel = (props) => {
   const imgArr = props.imgArr;
   const wrapperRef = useRef(null);
   const [images, setImages] = useState(imgArr);
-  console.log(this);
 
   useEffect(() => {
     return () => {};
@@ -46,11 +45,8 @@ const BioCarousel = (props) => {
               <div key={image.id + index} className="custom-height-bio pb-5">
                 <GatsbyImage
                   style={{
-                    height: "760px",
-                    width: "645px",
                     objectFit: "cover",
                   }}
-                  objectFit="cover"
                   image={getImage(image)}
                   alt={getCaptionString(image)}
                   loading="eager"

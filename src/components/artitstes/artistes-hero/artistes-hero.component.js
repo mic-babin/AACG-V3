@@ -3,7 +3,6 @@ import ArrowDownSrc from "../../../assets/img/icons/small-white-arrow-down.svg";
 import ArrowUpSrc from "../../../assets/img/icons/small-white-arrow-up.svg";
 import { motion, AnimatePresence } from "framer-motion";
 import { Parallax } from "react-scroll-parallax";
-import PinkSrc from "../../../assets/img/shapes/pink-5.svg";
 import BlueSrc from "../../../assets/img/shapes/blue-2.svg";
 import BeigeSrc from "../../../assets/img/shapes/beige-4.svg";
 import {
@@ -112,7 +111,6 @@ const ArtistesHero = ({ location, tags, selectedTags, setSelectedTags }) => {
                 className=""
                 initial={{ width: "0%", opacity: 0 }}
                 animate={{ width: "100%", opacity: 1 }}
-                exit={{ height: 0 }}
                 transition={{ duration: 0.75, delay: 0.5 }}
               >
                 <div className="line"></div>

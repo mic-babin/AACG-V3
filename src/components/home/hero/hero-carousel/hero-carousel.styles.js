@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Style = styled.div`
   .carousel-wrapper {
@@ -44,7 +44,8 @@ export const Style = styled.div`
   @media only screen and (max-width: 992px) {
     .carousel-wrapper {
       width: 100vw !important;
-      img {
+      img,
+      .gatsby-image-wrapper {
         width: 100vw !important;
       }
     }
@@ -55,6 +56,7 @@ export const Style = styled.div`
       height: 92vh !important;
 
       img {
+        margin-top: -24px;
         height: 92vh !important;
       }
     }
@@ -66,4 +68,4 @@ export const Style = styled.div`
     right: -80px;
     z-index: 2;
   }
-`
+`;

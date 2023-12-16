@@ -1,17 +1,17 @@
 export const getArtistTags = (tags, title) => {
-  let artistTags = []
-  let index = 0
+  let artistTags = [];
+  let index = 0;
 
-  tags.forEach(tag => {
+  tags.forEach((tag) => {
     if (isArtistsTag(tag) && !artistTags.includes(tag))
-      artistTags.push(getTag(tag, tags, index, title))
-    index++
-  })
+      artistTags.push(getTag(tag, tags, index, title));
+    index++;
+  });
   // this.tagsArrayLength = (artistTags.length)
-  return artistTags
-}
+  return artistTags;
+};
 
-const isArtistsTag = tag => {
+const isArtistsTag = (tag) => {
   //Missing : 29, 33
   let artistTags = [
     "Animateurs et animatrices",
@@ -25,78 +25,78 @@ const isArtistsTag = tag => {
     "Metteurs et metteures en scène",
     "Réalisateurs et réalisatrices",
     "Concepteurs et conceptrices",
-  ]
-  return artistTags.includes(tag)
-}
+  ];
+  return artistTags.includes(tag);
+};
 
 export const getTagString = (tag, isWoman, title) => {
   switch (tag) {
     case "Animateurs et animatrices":
       if (isWoman) {
-        return "Animatrice"
+        return "Animatrice";
       } else {
-        return "Animateur"
+        return "Animateur";
       }
     case "Auteurs et autrices":
       if (isWoman) {
-        return "Autrice"
+        return "Autrice";
       } else {
-        return "Auteur"
+        return "Auteur";
       }
     case "Comédiens":
-      return "Comédien"
+      return "Comédien";
     case "Comédiennes":
-      return "Comédienne"
+      return "Comédienne";
     case "Humoristes":
-      return "Humoriste"
+      return "Humoriste";
     case "Metteurs et metteures en scène":
       if (isWoman) {
-        return "Metteure en scène"
+        return "Metteure en scène";
       } else {
-        return "Metteur en scène"
+        return "Metteur en scène";
       }
     case "Réalisateurs et réalisatrices":
       if (title === "Dan et Pag") {
-        return "Réalisateurs"
+        return "Réalisateurs";
       }
       if (isWoman) {
-        return "Réalisatrice"
+        return "Réalisatrice";
       } else {
-        return "Réalisateur"
+        return "Réalisateur";
       }
     case "Chroniqueurs et chroniqueuses":
       if (isWoman) {
-        return "Chroniqueuse"
+        return "Chroniqueuse";
       } else {
-        return "Chroniqueur"
+        return "Chroniqueur";
       }
     case "Concepteurs et conceptrices":
       if (isWoman) {
-        return "Conceptrice"
+        return "Conceptrice";
       } else {
-        return "Concepteur"
+        return "Concepteur";
       }
     default:
-      return ""
+      return "";
   }
-}
+};
 
 export const getTag = (tag, tags, index, title) => {
-  let isWoman = tags.includes("Femme")
+  let isWoman = tags.includes("Femme");
 
   let newTag = getTagString(
-    tags.find(t => t === tag),
+    tags.find((t) => t === tag),
     isWoman,
     title
-  )
+  );
 
   if (newTag.length > 0) {
     if (index !== 0) {
-      return newTag.toLowerCase()
+      return newTag.toLowerCase();
     } else {
-      return newTag
+      return newTag;
     }
   } else {
-    return null
+    return null;
   }
-}
+};

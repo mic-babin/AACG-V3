@@ -4,7 +4,7 @@ import Modal from "react-modal";
 import { motion } from "framer-motion";
 import MobileMenu from "../mobile-menu/mobile-menu.component";
 
-const Burger = ({ navLinks }) => {
+const Burger = ({ navLinks, artistes }) => {
   const [modalIsOpen, setIsOpen] = useState(false);
 
   function closeModal() {
@@ -60,6 +60,7 @@ const Burger = ({ navLinks }) => {
           }}
         >
           <MobileMenu
+            artistes={artistes}
             navLinks={navLinks}
             modalIsOpen={modalIsOpen}
             setIsOpen={setIsOpen}

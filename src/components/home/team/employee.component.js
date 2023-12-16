@@ -1,7 +1,7 @@
-import React, { useState } from "react"
-import { Style } from "./team.styles"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import ArrowSrc from "../../../assets/img/icons/arrow-down.svg"
+import React, { useState } from "react";
+import { Style } from "./team.styles";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import ArrowSrc from "../../../assets/img/icons/arrow-down.svg";
 import {
   getTitle,
   getTags,
@@ -9,19 +9,19 @@ import {
   getBio2,
   getTel,
   getEmail,
-} from "./team.utils"
-import { fadeRightVariants } from "../../../assets/animations/animations"
-import { motion, useAnimation } from "framer-motion"
+} from "./team.utils";
+import { fadeRightVariants } from "../../../assets/animations/animations";
+import { motion, useAnimation } from "framer-motion";
 const Employee = ({ employee }) => {
-  const [isOpen, setIsOpen] = useState(false)
-  const controls = useAnimation()
+  const [isOpen, setIsOpen] = useState(false);
+  const controls = useAnimation();
 
   const toggleCollapsible = async () => {
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen);
 
     // Use Framer Motion to animate the opening/closing of the collapsible content
-    await controls.start({ height: isOpen ? 0 : "auto" })
-  }
+    await controls.start({ height: isOpen ? 0 : "auto" });
+  };
 
   return (
     <Style
@@ -56,7 +56,7 @@ const Employee = ({ employee }) => {
                 dangerouslySetInnerHTML={{
                   __html: employee.title,
                 }}
-                className="text-black mb-1"
+                className="text-black mb-3"
               ></h4>
               <p
                 className="mb-1 text-black title"
@@ -115,7 +115,7 @@ const Employee = ({ employee }) => {
         </motion.div>
       </div>
     </Style>
-  )
-}
+  );
+};
 
-export default Employee
+export default Employee;

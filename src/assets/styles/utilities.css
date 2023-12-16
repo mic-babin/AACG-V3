@@ -45,7 +45,7 @@ p.small {
 
 /* Titles */
 h1 {
-  font-size: 80px !important;
+  font-size: 80px;
   font-family: "Poppins", sans-serif;
   font-weight: 400 !important;
   line-height: 90px;

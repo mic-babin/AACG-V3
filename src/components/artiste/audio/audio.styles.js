@@ -1,9 +1,10 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Section = styled.section`
   .rhap_container {
     box-shadow: none;
     padding: 15px 0;
+    background-color: transparent;
   }
   .rhap_controls-section,
   .rhap_time,
@@ -47,4 +48,15 @@ export const Section = styled.section`
   .underline {
     border-bottom: 1px solid black;
   }
-`
+  .blue-1 {
+    position: absolute;
+    top: 450px;
+    left: -100px;
+    z-index: 0;
+  }
+  @media only screen and (max-width: 991px) {
+    .blue-1 {
+      left: -150px;
+    }
+  }
+`;

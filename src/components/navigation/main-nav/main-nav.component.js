@@ -1,107 +1,86 @@
-import React, { useEffect, useState } from "react"
-import { Link } from "gatsby"
-import LogoSrc from "../../../assets/img/logo/logo-horizontal.svg"
-import { Wrapper, Logo, LinkList, Button, SearchInput } from "./main-nav.styles"
-import { useIsMedium } from "../../../utils/media-query.hook"
-import Burger from "../burger/burger.component"
-import { menu } from "../data/menu"
-import SearchSrc from "../../../assets/img/icons/search-white.svg"
-import CloseSrc from "../../../assets/img/icons/close.svg"
-import { veryLittleFadeUpVariants } from "../../../assets/animations/animations"
-import { motion } from "framer-motion"
+import React, { useEffect, useState } from "react";
+import { Link, navigate } from "gatsby";
+import LogoSrc from "../../../assets/img/logo/logo-horizontal.svg";
+import {
+  Wrapper,
+  Logo,
+  LinkList,
+  Button,
+  SearchInput,
+} from "./main-nav.styles";
+import { useIsMedium } from "../../../utils/media-query.hook";
+import Burger from "../burger/burger.component";
+import { menu } from "../data/menu";
+import SearchSrc from "../../../assets/img/icons/search-white.svg";
+import CloseSrc from "../../../assets/img/icons/close.svg";
+import { veryLittleFadeUpVariants } from "../../../assets/animations/animations";
+import { motion } from "framer-motion";
+import { getArtistTags } from "../../../utils/artist-tags";
 
-const MainNav = () => {
-  const isMedium = useIsMedium()
-  const links = menu
+const MainNav = ({ artistes, tags }) => {
+  const isMedium = useIsMedium();
+  const links = menu;
 
-  const [top, setTop] = useState(true)
-  const [showSearchInput, setShowSearchInput] = useState(false)
-  const [searchInput, setSearchInput] = useState("")
-  const [filteredArtists, setFilteredArtists] = useState([])
-  const [filteredLength, setFilteredLength] = useState(0)
-  const [tagsArrayLength, setTagsArrayLength] = useState(0)
-  const [tags, setTags] = useState([])
+  const [top, setTop] = useState(true);
+  const [showSearchInput, setShowSearchInput] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+  const [filteredArtists, setFilteredArtists] = useState([]);
+  const [filteredLength, setFilteredLength] = useState(0);
+  const [tagsArrayLength, setTagsArrayLength] = useState(0);
+  // const [tags, setTags] = useState([]);
 
   const animation = {
     initial: "hidden",
     whileInView: "visible",
     viewport: { once: true },
     variants: veryLittleFadeUpVariants,
-  }
+  };
 
   const toggleTop = () => {
     if (window.pageYOffset > 50) {
-      setTop(false)
+      setTop(false);
     } else {
-      setTop(true)
+      setTop(true);
     }
-  }
+  };
 
   useEffect(() => {
-    window.addEventListener("scroll", () => toggleTop())
+    window.addEventListener("scroll", () => toggleTop());
 
-    //   getArtists();
-    //   getTags();
+    return () => window.removeEventListener("scroll", () => toggleTop());
+  }, []);
 
-    return () => window.removeEventListener("scroll", () => toggleTop())
-  }, [])
+  const toggleSearchInput = (bool) => {
+    setShowSearchInput(!bool);
+    setSearchInput("");
+  };
 
-  const toggleSearchInput = bool => {
-    setShowSearchInput(!bool)
-    setSearchInput("")
-  }
+  const onSearchChange = () => {
+    const filtered = artistes.filter((artist) =>
+      artist.title
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .includes(
+          searchInput
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+        )
+    );
+    setFilteredArtists(filtered.slice(0, 4));
+    setFilteredLength(filtered.length);
+  };
 
-  // const onSearchChange = () => {
-  //   const filteredArtists = loadArtists.filter((artist) =>
-  //     artist.title.rendered
-  //       .toLowerCase()
-  //       .normalize("NFD")
-  //       .replace(/[\u0300-\u036f]/g, "")
-  //       .includes(searchInput.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""))
-  //   );
-  //   setFilteredArtists(filteredArtists.slice(0, 4));
-  //   setFilteredLength(filteredArtists.length);
-  // };
+  const goToArtist = (artist) => {
+    navigate(`/artistes/${artist?.slug}`);
+    setSearchInput("");
+    setShowSearchInput(false);
+  };
 
-  // const getArtists = () => {
-  //   // Define your logic to get artists (posts)
-  //   const artists = wp.posts.map((post) => post);
-  //   setArtists(artists);
-  // };
-
-  // const goToArtist = (artist) => {
-  //   // Define your logic to navigate to the artist page
-  //   router.navigate([`/artistes/${artist?.slug}`]);
-  //   setSearchInput("");
-  //   setShowSearchInput(false);
-  // };
-
-  // const getArtistTags = (tags) => {
-  //   const artistTags = [];
-  //   tags.forEach((tag) => {
-  //     if (isArtistsTag(tag) && !artistTags.includes(tag)) {
-  //       artistTags.push(tag);
-  //     }
-  //   });
-  //   setTagsArrayLength(artistTags.length);
-  //   return artistTags;
-  // };
-
-  // const isArtistsTag = (tag) => {
-  //   // Define your logic to check if a tag is an artist tag
-  //   return tagsService.isArtistsTag(tag);
-  // };
-
-  // const getTag = (tag, tags, index, artist) => {
-  //   // Define your logic to get a tag
-  //   return tagsService.getTag(tag, tags, index, artist);
-  // };
-
-  // const getTags = () => {
-  //   // Define your logic to get tags
-  //   const tags = wp.tags;
-  //   setTags(tags);
-  // };
+  useEffect(() => {
+    onSearchChange();
+  }, [searchInput]);
 
   return (
     <Wrapper
@@ -134,50 +113,65 @@ const MainNav = () => {
             ))}
           {!isMedium && (
             <>
-              <SearchInput className="mx-1 px-2 p-holder position-relative">
-                <input
-                  className={`search-input  ${showSearchInput ? "" : "hide"}`}
-                  type="text"
-                  value={searchInput}
-                  onChange={e => setSearchInput(e.target.value)}
-                  placeholder="Nom ou prénom d'artistes..."
-                />
-                <div className={`p-holder ${showSearchInput ? "" : "hide"}`}>
-                  <img
-                    src={CloseSrc}
-                    alt=""
-                    className="close-icon"
-                    onClick={() => toggleSearchInput(showSearchInput)}
+              <div className="position-relative">
+                <SearchInput className="mx-1 px-2 p-holder position-relative">
+                  <input
+                    className={`search-input  ${showSearchInput ? "" : "hide"}`}
+                    type="text"
+                    value={searchInput}
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    placeholder="Nom ou prénom d'artistes..."
                   />
-                </div>
-              </SearchInput>
-              {/* <div className="search-results-wrapper">
-                    {searchInput !== "" && showSearchInput ? (
-                      <ul>
-                        {filteredArtists.map((artist, index) => (
+                  <div className={`p-holder ${showSearchInput ? "" : "hide"}`}>
+                    <img
+                      src={CloseSrc}
+                      alt=""
+                      className="close-icon"
+                      onClick={() => toggleSearchInput(showSearchInput)}
+                    />
+                  </div>
+                </SearchInput>
+                {searchInput !== "" && showSearchInput ? (
+                  <div className="search-results-wrapper">
+                    <ul>
+                      {filteredArtists.map((artist, index) => {
+                        let artistTags = getArtistTags(
+                          artist.tags.nodes.map((tag) => tag.name),
+                          artist.title
+                        );
+                        return (
                           <li key={index}>
                             <div onClick={() => goToArtist(artist)}>
-                              <div>{artist.title.rendered}</div>
+                              <div>{artist.title}</div>
                             </div>
                             <div className="small-text">
-                              {getArtistTags(artist?.tags).map((tag, i) => (
-                                <span key={i}>
-                                  {i === 0
-                                    ? getTag(tag, tags, i, artist)
-                                    : `, ${getTag(tag, tags, i, artist)}`}
+                              {artistTags.map((tag, i) => (
+                                <span
+                                  key={i}
+                                  className={`${
+                                    i === 0 ? "first-letter-capital" : ""
+                                  }`}
+                                >
+                                  {i > 0 && <span>&nbsp;</span>}
+                                  {tag}
+                                  {i < artistTags.length - 2 && ", "}
+
+                                  {i === artistTags.length - 2 &&
+                                    tag !== artistTags[i - 1] &&
+                                    " et "}
                                 </span>
                               ))}
                             </div>
                           </li>
-                        ))}
-                        {filteredLength === 0 && (
-                          <li>
-                            Aucun résultat ne correspond à votre recherche
-                          </li>
-                        )}
-                      </ul>
-                    ) : null}
-                  </div> */}
+                        );
+                      })}
+                      {filteredLength === 0 && (
+                        <li>Aucun résultat ne correspond à votre recherche</li>
+                      )}
+                    </ul>
+                  </div>
+                ) : null}
+              </div>
 
               <div
                 className="ms-2 d-flex justify-content-center "
@@ -200,13 +194,13 @@ const MainNav = () => {
           )}
           {isMedium && (
             <Button>
-              <Burger />
+              <Burger artistes={artistes} />
             </Button>
           )}
         </LinkList>
       </div>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default MainNav
+export default MainNav;

@@ -1,8 +1,12 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Section = styled.section`
-  .col-lg-4:nth-child(3n - 1) {
+  .push-down {
     transform: translateY(80px);
+  }
+
+  .caption.push-down {
+    transform: translateY(50px);
   }
 
   .row {
@@ -23,8 +27,16 @@ export const Section = styled.section`
   }
 
   @media only screen and (max-width: 991px) {
-    .col-lg-4:nth-child(2n) {
+    .push-down {
       transform: translateY(0px);
     }
-  } ;
-`
+    .caption.push-down {
+      transform: translateY(-30px);
+    }
+  }
+  @media only screen and (max-width: 575px) {
+    .w-100 {
+      width: calc(100% - 15px) !important;
+    }
+  }
+`;

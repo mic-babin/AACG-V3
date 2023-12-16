@@ -8,7 +8,7 @@ import "../assets/styles/normalize.css";
 // custom CSS styles
 import "../assets/styles/style.css";
 
-const Layout = ({ isHomePage, children }) => {
+const Layout = ({ isHomePage, children, artistes, tags }) => {
   const {
     wp: {
       generalSettings: { title },
@@ -26,7 +26,7 @@ const Layout = ({ isHomePage, children }) => {
 
   return (
     <>
-      <Header />
+      <Header artistes={artistes} tags={tags} />
       <main>{children}</main>
       <Footer />
     </>

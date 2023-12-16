@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Style = styled.div`
   h2 {
@@ -24,5 +24,9 @@ export const Style = styled.div`
       left: 140px;
       z-index: -1;
     }
+
+    h1 {
+      margin-bottom: 0;
+    }
   }
-`
+`;

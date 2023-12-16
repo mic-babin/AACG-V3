@@ -1,14 +1,14 @@
-import React, { useRef } from "react"
-import { Style } from "./about.styles"
-import BeigeSrc from "../../../assets/img/shapes/beige-2.svg"
-import ArrowSrc from "../../../assets/img/icons/fleche-right.svg"
-import { motion } from "framer-motion"
-import { Parallax } from "react-scroll-parallax"
+import React, { useRef } from "react";
+import { Style } from "./about.styles";
+import BeigeSrc from "../../../assets/img/shapes/beige-2.svg";
+import ArrowSrc from "../../../assets/img/icons/fleche-right.svg";
+import { motion } from "framer-motion";
+import { Parallax } from "react-scroll-parallax";
 import {
   littleFadeUpVariants,
   fadeLeftVariants,
   veryLittleFadeUpVariants,
-} from "../../../assets/animations/animations"
+} from "../../../assets/animations/animations";
 
 const About = ({
   missionTitle,
@@ -18,19 +18,19 @@ const About = ({
   missionText3,
   missionText4,
 }) => {
-  const wrapperRef = useRef(null)
+  const wrapperRef = useRef(null);
 
   const animateIn = {
     initial: "hidden",
     whileInView: "visible",
     viewport: { once: true },
-  }
+  };
 
   const textAnimation = {
     ...animateIn,
     variants: veryLittleFadeUpVariants,
     transition: { duration: 0.5, delay: 0.5 },
-  }
+  };
 
   return (
     <Style>
@@ -46,19 +46,16 @@ const About = ({
                   variants={fadeLeftVariants}
                   transition={{ duration: 0.75 }}
                 >
-                  <Parallax translateY={[-10, 20]}>
+                  <Parallax translateY={[-30, -20]}>
                     <img src={BeigeSrc} alt="Beige Shape" />
                   </Parallax>
                 </motion.div>
               </div>
 
-              <h1 className="mb-5 ps-7 text-black">
+              <h1 className="mb-3 mb-lg-5 ps-7 text-black">
                 <span className="overflow-hidden h-100 d-inline-block">
                   {missionTitle.split(" ").map((word, i) => (
-                    <span
-                      key={i}
-                      className={`d-inline-block me-3 overflow-hidden`}
-                    >
+                    <span key={i} className={`d-inline-block overflow-hidden`}>
                       <motion.span
                         className={`overflow-hidden d-inline-block me-3`}
                         {...animateIn}
@@ -115,7 +112,7 @@ const About = ({
         </div>
       </div>
     </Style>
-  )
-}
+  );
+};
 
-export default About
+export default About;

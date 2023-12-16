@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const Style = styled.div`
   /* overflow-x: hidden; */
@@ -161,9 +161,6 @@ export const Style = styled.div`
         width: 180px;
       }
     }
-    .red-5 {
-      top: 1100px;
-    }
   }
 
   @media only screen and (max-width: 767px) {
@@ -203,9 +200,6 @@ export const Style = styled.div`
         width: 180px;
       }
     }
-    .red-5 {
-      top: 1900px;
-    }
   }
 
   @media only screen and (max-width: 575px) {
@@ -240,9 +234,6 @@ export const Style = styled.div`
         display: none;
       }
     }
-    .red-5 {
-      top: 1700px;
-    }
   }
 
   @media only screen and (max-width: 575px) {
@@ -250,4 +241,4 @@ export const Style = styled.div`
       // height: 100vh !important;
     }
   }
-`
+`;

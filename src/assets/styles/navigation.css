@@ -10,21 +10,6 @@
   padding-bottom: 0.5rem !important;
 }
 
-.navbar.diminished:hover {
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.5rem !important;
-}
-
-.navbar:hover {
-  padding-top: 0.5rem !important;
-  padding-bottom: 0.5rem !important;
-}
-
-.navbar:hover,
-.navbar.diminished:hover {
-  transition: all 0.2s ease-in;
-}
-
 .navbar-toggle-icon {
   position: relative;
   color: transparent;
