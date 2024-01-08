@@ -33,12 +33,13 @@ const Layout = ({ isHomePage, children, artistes, tags }) => {
   return (
     <>
       {loading && <Loader />}
-
-      <>
-        <Header artistes={artistes} tags={tags} />
-        <main>{children}</main>
-        <Footer />
-      </>
+      {!loading && (
+        <>
+          <Header artistes={artistes} tags={tags} />
+          <main>{children}</main>
+          <Footer />
+        </>
+      )}
     </>
   );
 };
