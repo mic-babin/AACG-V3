@@ -8,8 +8,19 @@ import About from "../components/home/about/about.component";
 import Pictures from "../components/home/pictures/pictures.component";
 import Team from "../components/home/team/team.component";
 import Instagram from "../components/home/instagram/instagram.component";
+import { useEffect } from "react";
 
 const Home = ({ data, location }) => {
+  const isBrowser = typeof window !== "undefined";
+  useEffect(() => {
+    console.log(document.getElementById("about"));
+    if (location.hash.includes("about") && isBrowser) {
+      setTimeout(() => document.getElementById("about").scrollIntoView(), 600);
+      console.log("scroll");
+    }
+  }, [location]);
+
+  console.log(location.hash.includes("about"));
   const siteTitle = data.site.siteMetadata.title;
   const homeDataArr = data.allWpPost.nodes[0].content.split("<p>");
   const media = data.allWpMediaItem.nodes;

@@ -27,7 +27,7 @@ const HomeHero = ({ title, media }) => {
                       className={`overflow-hidden d-inline-block me-3`}
                       dangerouslySetInnerHTML={{ __html: word }}
                       initial="hidden"
-                      whileInView="visible"
+                      animate="visible"
                       viewport={{ once: true }}
                       variants={littleFadeUpVariants}
                       transition={{ duration: 0.5, delay: 1.5 + i / 10 }}
