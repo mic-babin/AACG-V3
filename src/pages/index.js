@@ -85,7 +85,7 @@ const Home = ({ data, location }) => {
 
   return (
     <Layout
-      location={location}
+      location={location.pathname}
       title={siteTitle}
       artistes={artistes}
       tags={tags}

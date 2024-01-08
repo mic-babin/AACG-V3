@@ -9,7 +9,7 @@ import "../assets/styles/normalize.css";
 import "../assets/styles/style.css";
 import Loader from "./navigation/loader/loader.component";
 
-const Layout = ({ isHomePage, children, artistes, tags }) => {
+const Layout = ({ isHomePage, children, artistes, tags, location }) => {
   const [loading, setloading] = useState(true);
   const {
     wp: {
@@ -25,6 +25,7 @@ const Layout = ({ isHomePage, children, artistes, tags }) => {
       }
     }
   `);
+  console.log(location);
 
   useEffect(() => {
     setTimeout(() => setloading(false), 300);
@@ -33,7 +34,7 @@ const Layout = ({ isHomePage, children, artistes, tags }) => {
   return (
     <>
       {loading && <Loader />}
-      {!loading && (
+      {((!loading && location == "/") || location != "/") && (
         <>
           <Header artistes={artistes} tags={tags} />
           <main>{children}</main>
