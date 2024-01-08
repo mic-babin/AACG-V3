@@ -10,6 +10,12 @@ export const ModalCard = styled(Modal)`
 `;
 
 export const Style = styled.div`
+  .modal-carousel-item {
+    height: 80vh;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+  }
   .modal-carousel-wrapper {
     img,
     .gatsby-image-wrapper {

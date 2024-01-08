@@ -30,7 +30,7 @@ const ModalCarousel = ({ show, handleClose, imgArr }) => {
               ssr={true}
             >
               {imgArr.map((image, index) => (
-                <div key={image.id + index} className="">
+                <div key={image.id + index} className="modal-carousel-item">
                   <GatsbyImage
                     style={{
                       objectFit: "cover",
