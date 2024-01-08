@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { sortByDescription } from "../../../utils/sort-by-description";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { Section } from "./photo.styles";
@@ -10,6 +10,7 @@ import {
   fadeRightVariants,
   littleFadeUpVariants,
 } from "../../../assets/animations/animations";
+import ModalCarousel from "../modal-carousel/modal-carousel.component";
 
 const Photo = ({ photoArr }) => {
   photoArr = sortByDescription(photoArr);
@@ -21,6 +22,10 @@ const Photo = ({ photoArr }) => {
       return " ";
     }
   };
+
+  const [showModal, setShowModal] = useState(false);
+  const handleOpen = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
 
   return (
     <Section className="wrapper">
@@ -51,6 +56,7 @@ const Photo = ({ photoArr }) => {
               variants={fadeRightVariants}
               transition={{ duration: 0.75, delay: 0.25 }}
               viewport={{ once: true }}
+              onClick={() => handleOpen()}
             >
               <GatsbyImage
                 image={getImage(image.gatsbyImage)}
@@ -58,7 +64,7 @@ const Photo = ({ photoArr }) => {
                 className={`w-100 ${(index - 1) % 3 == 0 ? "push-down" : ""} `}
               />
               <div
-                className={`caption ${
+                className={` caption ${
                   (index - 1) % 3 == 0 ? "push-down" : ""
                 } `}
               >
@@ -70,6 +76,11 @@ const Photo = ({ photoArr }) => {
           ))}
         </div>
       </div>
+      <ModalCarousel
+        show={showModal}
+        handleClose={handleClose}
+        imgArr={photoArr}
+      />
     </Section>
   );
 };

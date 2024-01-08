@@ -1,8 +1,8 @@
-const nodemailer = require("nodemailer")
-require("dotenv").config()
-const { EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASSWORD } = process.env
+const nodemailer = require("nodemailer");
+require("dotenv").config();
+const { EMAIL_HOST, EMAIL_PORT, EMAIL_USER, EMAIL_PASSWORD } = process.env;
 
-var mailList = ["michael.babin@outlook.fr"]
+var mailList = ["michael.babin@outlook.fr"];
 
 const authData = nodemailer.createTransport({
   host: EMAIL_HOST,
@@ -12,15 +12,16 @@ const authData = nodemailer.createTransport({
     user: EMAIL_USER,
     pass: EMAIL_PASSWORD,
   },
-})
+});
 
-exports.handler = async event => {
-  const method = event.httpMethod
+exports.handler = async (event) => {
+  const method = event.httpMethod;
   const {
     fields: { firstName, lastName, email, phone, message },
-  } = JSON.parse(event.body)
-  const from = "michael.babin@griffincreative.ca"
-  const emailSubject = "Formulaire de contact - Mizrahi Services Financiers"
+  } = JSON.parse(event.body);
+  const from = "michael.babin@griffincreative.ca";
+  const emailSubject =
+    "Formulaire de contact - Agence Artistique Corinne Giguère";
   const data = {
     from: from,
     to: mailList,
@@ -120,25 +121,25 @@ exports.handler = async event => {
     // attachments: [{
     //     path: change with file path
     // }]
-  }
+  };
   if (method !== "POST") {
     return {
       statusCode: 405,
       body: "Only POST request allowed",
-    }
+    };
   }
   try {
-    await authData.sendMail({ ...data })
+    await authData.sendMail({ ...data });
     return {
       statusCode: 200,
       body: "Success",
-    }
+    };
   } catch (error) {
     return {
       statusCode: 400,
       body: JSON.stringify(error.message),
-    }
+    };
   }
-}
+};
 // authData
 //     .sendMail();

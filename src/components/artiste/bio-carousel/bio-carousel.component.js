@@ -9,16 +9,17 @@ import {
   getCaptionString,
 } from "../../home/hero/hero.utils";
 import { motion } from "framer-motion";
+import { sortByDescription } from "../../../utils/sort-by-description";
 import { fadeRightBioCarouselVariants } from "../../../assets/animations/animations";
+import ModalCarousel from "../modal-carousel/modal-carousel.component";
 
 const BioCarousel = (props) => {
-  const imgArr = props.imgArr;
+  const imgArr = sortByDescription(props.imgArr);
   const wrapperRef = useRef(null);
   const [images, setImages] = useState(imgArr);
-
-  useEffect(() => {
-    return () => {};
-  }, [imgArr]);
+  const [showModal, setShowModal] = useState(false);
+  const handleOpen = () => setShowModal(true);
+  const handleClose = () => setShowModal(false);
 
   return (
     <Style ref={wrapperRef}>
@@ -35,14 +36,18 @@ const BioCarousel = (props) => {
             responsive={customOptions.responsive}
             infinite={customOptions.infinite}
             arrows={customOptions.arrows}
-            autoPlay={customOptions.autoPlay}
-            autoPlaySpeed={customOptions.autoPlaySpeed}
-            showDots={true}
+            autoPlay={false}
+            autoPlaySpeed={false}
+            showDots={imgArr.length > 1 ? true : false}
             customDot={<CustomDot />}
             ssr={true}
           >
             {images.map((image, index) => (
-              <div key={image.id + index} className="custom-height-bio pb-5">
+              <div
+                key={image.id + index}
+                className="custom-height-bio pb-5"
+                onClick={() => handleOpen()}
+              >
                 <GatsbyImage
                   style={{
                     objectFit: "cover",
@@ -63,6 +68,11 @@ const BioCarousel = (props) => {
           </Carousel>
         )}
       </motion.div>
+      <ModalCarousel
+        show={showModal}
+        handleClose={handleClose}
+        imgArr={imgArr}
+      />
     </Style>
   );
 };

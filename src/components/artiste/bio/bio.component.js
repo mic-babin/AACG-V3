@@ -39,7 +39,7 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
 
   const taille = content
     .filter((element) => element.includes("#taille"))[0]
-    .split("=")
+    ?.split("=")
     .filter((item) => !item.includes("FR-CA"))[1]
     .split("</p")[0];
   const poids = content

@@ -24,7 +24,6 @@ const Artiste = ({ data }) => {
   const artistMedia = data.allWpMediaItem.nodes.filter((item) =>
     item.title.includes(slug)
   );
-  console.log(artistMedia);
 
   const bioImageArr = artistMedia.filter((item) =>
     item.title.includes("featured")
@@ -45,11 +44,15 @@ const Artiste = ({ data }) => {
           tags={artistTags}
           bioImageArr={bioImageArr}
         />
-        <div className="p-header pb-3">
-          {audioArr.length > 0 && <Audio audioArr={audioArr} />}
-          {videoArr.length > 0 && <Video videoArr={videoArr} />}
-          {photoArr.length > 0 && <Photo photoArr={photoArr} />}
-        </div>
+        {(audioArr.length > 0 ||
+          videoArr.length > 0 ||
+          photoArr.length > 0) && (
+          <div className="p-header pb-3">
+            {audioArr.length > 0 && <Audio audioArr={audioArr} />}
+            {videoArr.length > 0 && <Video videoArr={videoArr} />}
+            {photoArr.length > 0 && <Photo photoArr={photoArr} />}
+          </div>
+        )}
         <Seo title={title} />
       </ParallaxProvider>
     </Layout>
@@ -76,7 +79,7 @@ export const pageQuery = graphql`
         description
         title
         caption
-        gatsbyImage(width: 1000)
+        gatsbyImage(width: 800)
         mediaItemUrl
       }
     }

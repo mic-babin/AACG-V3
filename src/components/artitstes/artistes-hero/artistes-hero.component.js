@@ -182,11 +182,6 @@ const ArtistesHero = ({ location, tags, selectedTags, setSelectedTags }) => {
           </div>
         </div>
       </div>
-      {/* <div className="p-holder">
-        <div className="pink-5 z-minus">
-          <img src={PinkSrc} alt="" />
-        </div>
-      </div> */}
     </div>
   );
 };

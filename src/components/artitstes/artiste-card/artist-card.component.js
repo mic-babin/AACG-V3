@@ -27,7 +27,6 @@ const ArtisteCard = ({ artist }) => {
             alt={artist.title}
             style={{ width: "100%" }}
             className="mb-4 pb-2"
-            objectFit="cover"
             loading="eager"
           />
           <h2

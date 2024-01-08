@@ -3,7 +3,6 @@ export const Section = styled.section`
   .artist-card img {
     width: 100%;
     height: 500px;
-    object-fit: cover;
     object-position: center center;
   }
 

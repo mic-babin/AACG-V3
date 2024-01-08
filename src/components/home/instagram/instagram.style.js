@@ -164,6 +164,10 @@ export const Style = styled.div`
   }
 
   @media only screen and (max-width: 767px) {
+    .gatsby-image-wrapper {
+      overflow: visible;
+    }
+
     .img-position:first-of-type {
       img {
         top: 80px;
@@ -182,14 +186,14 @@ export const Style = styled.div`
     }
     .img-position:nth-of-type(4) {
       img {
-        top: 490px;
+        top: 190px;
         height: 220px;
         width: 220px;
       }
     }
     .img-position:nth-of-type(5) {
       img {
-        top: 740px;
+        top: 140px;
         right: 70px;
       }
     }
@@ -219,7 +223,7 @@ export const Style = styled.div`
     }
     .img-position:nth-of-type(4) {
       img {
-        top: 540px;
+        top: 200px;
         height: 220px;
         width: 220px;
       }

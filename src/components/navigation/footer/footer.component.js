@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from "react"
-import { socials2 } from "../data/socials" // Make sure to import your data appropriately
-import { Style } from "./footer.styles"
-import HorizontalSrc from "../../../assets/img/logo/logo-horizontal.svg"
-import VerticalSrc from "../../../assets/img/logo/logo-horizontal.svg"
-import FbSrc from "../../../assets/img/icons/socials/Facebook.svg"
-import FbBlueSrc from "../../../assets/img/icons/socials/facebook-blue.svg"
-import InSrc from "../../../assets/img/icons/socials/Instagram.svg"
-import InBlueSrc from "../../../assets/img/icons/socials/instagram-blue.svg"
-import VimeoSrc from "../../../assets/img/icons/socials/Vimeo.svg"
-import VimeoBlueSrc from "../../../assets/img/icons/socials/vimeo-blue.svg"
+import React, { useEffect, useState } from "react";
+import { socials2 } from "../data/socials"; // Make sure to import your data appropriately
+import { Style } from "./footer.styles";
+import HorizontalSrc from "../../../assets/img/logo/logo-horizontal.svg";
+import VerticalSrc from "../../../assets/img/logo/logo-vertical.svg";
+import FbSrc from "../../../assets/img/icons/socials/Facebook.svg";
+import FbBlueSrc from "../../../assets/img/icons/socials/facebook-blue.svg";
+import InSrc from "../../../assets/img/icons/socials/Instagram.svg";
+import InBlueSrc from "../../../assets/img/icons/socials/instagram-blue.svg";
+import VimeoSrc from "../../../assets/img/icons/socials/Vimeo.svg";
+import VimeoBlueSrc from "../../../assets/img/icons/socials/vimeo-blue.svg";
 
 const Footer = () => {
-  const [year, setYear] = useState(new Date().getFullYear())
+  const [year, setYear] = useState(new Date().getFullYear());
 
   const socialIcons = {
     facebook: {
@@ -26,11 +26,11 @@ const Footer = () => {
       src: VimeoSrc,
       blueSrc: VimeoBlueSrc,
     },
-  }
+  };
 
   useEffect(() => {
-    setYear(new Date().getFullYear())
-  }, [])
+    setYear(new Date().getFullYear());
+  }, []);
 
   return (
     <Style className="footer">
@@ -87,11 +87,11 @@ const Footer = () => {
                   >
                     <img
                       src={social.source || socialIcons[social.name].src}
-                      onMouseOver={e => {
-                        e.currentTarget.src = socialIcons[social.name].blueSrc
+                      onMouseOver={(e) => {
+                        e.currentTarget.src = socialIcons[social.name].blueSrc;
                       }}
-                      onMouseOut={e => {
-                        e.currentTarget.src = socialIcons[social.name].src
+                      onMouseOut={(e) => {
+                        e.currentTarget.src = socialIcons[social.name].src;
                       }}
                       alt={social.name}
                     />
@@ -126,11 +126,11 @@ const Footer = () => {
                   >
                     <img
                       src={social.source || socialIcons[social.name].src}
-                      onMouseOver={e => {
-                        e.currentTarget.src = socialIcons[social.name].blueSrc
+                      onMouseOver={(e) => {
+                        e.currentTarget.src = socialIcons[social.name].blueSrc;
                       }}
-                      onMouseOut={e => {
-                        e.currentTarget.src = socialIcons[social.name].src
+                      onMouseOut={(e) => {
+                        e.currentTarget.src = socialIcons[social.name].src;
                       }}
                       alt={social.name}
                     />
@@ -158,7 +158,7 @@ const Footer = () => {
         </div>
       </div>
     </Style>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;

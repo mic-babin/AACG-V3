@@ -26,6 +26,11 @@ export const Section = styled.section`
     overflow-x: hidden;
   }
 
+  .gatsby-image-wrapper,
+  img {
+    min-height: 400px;
+  }
+
   @media only screen and (max-width: 991px) {
     .push-down {
       transform: translateY(0px);

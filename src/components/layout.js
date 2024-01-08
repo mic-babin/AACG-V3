@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import Footer from "./navigation/footer/footer.component";
 import Header from "./navigation/header/header.component";
@@ -7,8 +7,10 @@ import "../assets/styles/normalize.css";
 
 // custom CSS styles
 import "../assets/styles/style.css";
+import Loader from "./navigation/loader/loader.component";
 
 const Layout = ({ isHomePage, children, artistes, tags }) => {
+  const [loading, setloading] = useState(true);
   const {
     wp: {
       generalSettings: { title },
@@ -24,11 +26,19 @@ const Layout = ({ isHomePage, children, artistes, tags }) => {
     }
   `);
 
+  useEffect(() => {
+    setTimeout(() => setloading(false), 300);
+  }, []);
+
   return (
     <>
-      <Header artistes={artistes} tags={tags} />
-      <main>{children}</main>
-      <Footer />
+      {loading && <Loader />}
+
+      <>
+        <Header artistes={artistes} tags={tags} />
+        <main>{children}</main>
+        <Footer />
+      </>
     </>
   );
 };
