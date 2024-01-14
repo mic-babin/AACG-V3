@@ -136,7 +136,7 @@ export const pageQuery = graphql`
         description
         title
         caption
-        gatsbyImage(width: 1000, placeholder: BLURRED)
+        gatsbyImage(width: 1000)
       }
     }
     allWpTag {

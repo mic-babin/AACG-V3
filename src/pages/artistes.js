@@ -1,5 +1,5 @@
 import { graphql } from "gatsby";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Section } from "../components/artitstes/artistes.styles";
 import ArtistesHero from "../components/artitstes/artistes-hero/artistes-hero.component";
 import { ParallaxProvider } from "react-scroll-parallax";
@@ -16,6 +16,13 @@ const Artists = ({ path, data }) => {
   const tags = sortByDescription(data.allWpTag.edges.map((tag) => tag.node));
   const artists = sortArtists(data.allWpPost.nodes);
   const artistes = data.artistes.nodes;
+  const isBrowser = typeof window !== "undefined";
+  const previousPath =
+    isBrowser && JSON.parse(sessionStorage.getItem("previousPath"));
+
+  useEffect(() => {
+    if (previousPath) console.log(previousPath);
+  }, [previousPath]);
   return (
     <Layout
       location={location}

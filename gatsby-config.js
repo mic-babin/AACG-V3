@@ -25,7 +25,7 @@ module.exports = {
       options: {
         url:
           process.env.WPGRAPHQL_URL ||
-          `https://corinne-giguere.a2hosted.com/graphql`,
+          `https://corinne-giguere.a2hosted.com/graphql/`,
       },
     },
   ],

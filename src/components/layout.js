@@ -25,7 +25,6 @@ const Layout = ({ isHomePage, children, artistes, tags, location }) => {
       }
     }
   `);
-  console.log(location);
 
   useEffect(() => {
     setTimeout(() => setloading(false), 300);
@@ -34,7 +33,7 @@ const Layout = ({ isHomePage, children, artistes, tags, location }) => {
   return (
     <>
       {loading && <Loader />}
-      {((!loading && location == "/") || location != "/") && (
+      {!loading && (
         <>
           <Header artistes={artistes} tags={tags} />
           <main>{children}</main>

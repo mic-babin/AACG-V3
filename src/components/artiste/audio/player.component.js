@@ -10,6 +10,11 @@ const Player = ({ audio }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
+    // console.log(audioPlayerRef.current);
+    console.log(
+      "updated time",
+      document.getElementById("rhap_current-time").innerText
+    );
     if (audioPlayerRef) {
       if (isPlaying) {
         audioPlayerRef.current.audio.current.play();
@@ -19,7 +24,7 @@ const Player = ({ audio }) => {
     }
 
     return () => {};
-  }, [isPlaying]);
+  }, [isPlaying, audioPlayerRef?.current?.audio.current.currentTime]);
 
   const formatTime = (seconds) => {
     if (!isNaN(seconds)) {
@@ -29,25 +34,23 @@ const Player = ({ audio }) => {
     }
   };
   return (
-    <div className="d-flex mt-4 mx-lg-5 px-lg-5 position-relative z-2">
-      <div className="">
-        <div
-          onClick={() => {
-            setIsPlaying(!isPlaying);
-          }}
-        >
-          {!isPlaying ? (
-            <img className="pointer" src={PlaySrc} alt="Play" />
-          ) : (
-            <img
-              className="pointer"
-              height="44px"
-              width="44px"
-              src={PauseSrc}
-              alt="Pause"
-            />
-          )}
-        </div>
+    <div className="d-flex mt-4 mx-lg-5 px-lg-5 position-relative z-2 pb-3">
+      <div
+        onClick={() => {
+          setIsPlaying(!isPlaying);
+        }}
+      >
+        {!isPlaying ? (
+          <img className="pointer" src={PlaySrc} alt="Play" />
+        ) : (
+          <img
+            className="pointer"
+            height="44px"
+            width="44px"
+            src={PauseSrc}
+            alt="Pause"
+          />
+        )}
       </div>
 
       <div className="flex-grow-1 px-4 mx-3 ">
@@ -73,19 +76,6 @@ const Player = ({ audio }) => {
           onPlay={(e) => console.log("onPlay")}
           showJumpControls={false}
         />
-
-        <div className="d-flex justify-content-between">
-          <div>
-            {formatTime(
-              audioPlayerRef.current ? audioPlayerRef.current.currentTime : 0
-            )}
-          </div>
-          <div>
-            {formatTime(
-              audioPlayerRef.current ? audioPlayerRef.current.duration : 0
-            )}
-          </div>
-        </div>
       </div>
 
       <div className="download-btn pointer">

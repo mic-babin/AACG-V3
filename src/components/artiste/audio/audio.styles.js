@@ -7,9 +7,22 @@ export const Section = styled.section`
     background-color: transparent;
   }
   .rhap_controls-section,
-  .rhap_time,
   .rhap_progress-indicator {
     display: none;
+  }
+  .rhap_progress-section {
+    display: block;
+    position: relative;
+  }
+
+  .rhap_time {
+    height: 0;
+    position: absolute;
+    top: 35px;
+  }
+
+  .rhap_total-time {
+    right: 0;
   }
   .rhap_progress-container {
     margin: 0 0;
