@@ -22,7 +22,20 @@ const Artiste = ({ data }) => {
   const artistTags = data.wpPost.tags.nodes.map((tag) => tag.name);
 
   const artistMedia = data.allWpMediaItem.nodes.filter((item) =>
-    item.title.includes(slug)
+    item.title
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .includes(
+        slug
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+      )
+  );
+
+  console.log(
+    data.allWpMediaItem.nodes.filter((item) => item.title.includes("marie"))
   );
 
   const bioImageArr = artistMedia.filter((item) =>
