@@ -12,7 +12,7 @@ module.exports = {
     title: `Agence Artistique Corinne Giguère`,
     description: `Offrir à nos artistes des services professionnels et compétitifs, dans un climat d'écoute et d'ouverture.`,
     twitterUsername: `@agencecorinnegiguere`,
-    image: `mz.svg`,
+    image: ``,
     siteUrl: `https://agencecg.com/`,
   },
   plugins: [
