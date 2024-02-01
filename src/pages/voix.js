@@ -25,7 +25,7 @@ const Voix = ({ path, data }) => {
       tags={tags}
     >
       <ParallaxProvider>
-        <Seo title="Agence Artistique Corinne Giguère" />
+        <Seo title="Agence Artistique Corinne Giguère - Nos voix" />
         <Section id="wrapper">
           <ArtistesHero
             location={location}

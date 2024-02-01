@@ -11,7 +11,6 @@ import { Helmet } from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const Seo = ({ description, lang, meta, title }) => {
-  console.log(title);
   const { wp, wpUser } = useStaticQuery(
     graphql`
       query {
@@ -30,7 +29,8 @@ const Seo = ({ description, lang, meta, title }) => {
     `
   );
 
-  const metaDescription = description || wp.generalSettings?.description;
+  const metaDescription =
+    "Offrir à nos artistes des services professionnels et compétitifs, dans un climat d'écoute et d'ouverture.";
   const defaultTitle = title;
 
   return (

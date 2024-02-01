@@ -31,7 +31,7 @@ const Artists = ({ path, data }) => {
       tags={tags}
     >
       <ParallaxProvider>
-        <Seo title="Agence Artistique Corinne Giguère" />
+        <Seo title="Agence Artistique Corinne Giguère - Nos artistes" />
         <Section id="wrapper">
           <ArtistesHero
             location={location}
