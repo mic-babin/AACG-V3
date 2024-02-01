@@ -11,7 +11,7 @@ import {
 } from "../../../assets/animations/animations";
 
 const ArtistesHero = ({ location, tags, selectedTags, setSelectedTags }) => {
-  const title = ["Nos", "artistes"];
+  const title = ["Nos ", "artistes"];
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [filterTags, setFilterTags] = useState([]);
   const [kicker, setKicker] = useState("");
