@@ -39,7 +39,7 @@ const ArtistesHero = ({ location, tags, selectedTags, setSelectedTags }) => {
         "Nous choisissons chaque collaboration avec soin. Notre agence représente des artistes œuvrant à la télévision, au cinéma et sur scène, que ce soit comme auteurs, comédiens, animateurs, humoristes, metteurs en scène ou réalisateurs."
       );
     } else {
-      setFilterTags(tags.filter((tag) => tag.description.includes("voix")));
+      setFilterTags(tags.filter((tag) => tag?.description.includes("voix")));
       setKicker(
         "Que ce soit pour de la voix publicitaire, de la narration, du doublage ou de la surimpression vocale, vous trouverez ici de nombreux talents pouvant répondre à vos besoins."
       );
