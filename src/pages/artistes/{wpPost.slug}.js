@@ -34,10 +34,6 @@ const Artiste = ({ data }) => {
       )
   );
 
-  console.log(
-    data.allWpMediaItem.nodes.filter((item) => item.title.includes("marie"))
-  );
-
   const bioImageArr = artistMedia.filter((item) =>
     item.title.includes("featured")
   );

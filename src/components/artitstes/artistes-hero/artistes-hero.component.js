@@ -32,7 +32,9 @@ const ArtistesHero = ({ location, tags, selectedTags, setSelectedTags }) => {
 
   useEffect(() => {
     if (location.includes("artistes")) {
-      setFilterTags(tags.filter((tag) => tag.description.includes("artistes")));
+      setFilterTags(
+        tags.filter((tag) => tag.description?.includes("artistes"))
+      );
       setKicker(
         "Nous choisissons chaque collaboration avec soin. Notre agence représente des artistes œuvrant à la télévision, au cinéma et sur scène, que ce soit comme auteurs, comédiens, animateurs, humoristes, metteurs en scène ou réalisateurs."
       );

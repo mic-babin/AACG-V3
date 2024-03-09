@@ -10,11 +10,6 @@ const Player = ({ audio }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    // console.log(audioPlayerRef.current);
-    console.log(
-      "updated time",
-      document.getElementById("rhap_current-time").innerText
-    );
     if (audioPlayerRef) {
       if (isPlaying) {
         audioPlayerRef.current.audio.current.play();
