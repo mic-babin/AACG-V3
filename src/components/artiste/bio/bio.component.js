@@ -7,6 +7,8 @@ import FbSrc from "../../../assets/img/icons/socials/Facebook.svg";
 import FbBlueSrc from "../../../assets/img/icons/socials/facebook-blue.svg";
 import InSrc from "../../../assets/img/icons/socials/Instagram.svg";
 import InBlueSrc from "../../../assets/img/icons/socials/instagram-blue.svg";
+import LinkedInSrc from "../../../assets/img/icons/socials/LinkedIn.svg";
+import LinkedInBlueSrc from "../../../assets/img/icons/socials/LinkedIn-blue.svg";
 import VimeoSrc from "../../../assets/img/icons/socials/Vimeo.svg";
 import VimeoBlueSrc from "../../../assets/img/icons/socials/vimeo-blue.svg";
 import BioCarousel from "../bio-carousel/bio-carousel.component";
@@ -34,6 +36,10 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
     vimeo: {
       src: VimeoSrc,
       blueSrc: VimeoBlueSrc,
+    },
+    linkedIn: {
+      src: LinkedInSrc,
+      blueSrc: LinkedInBlueSrc,
     },
   };
 
@@ -92,6 +98,11 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
     ?.split("=")
     .filter((item) => !item.includes("FR-CA"))[1]
     .split("</")[0];
+  const linkedIn = content
+    .filter((element) => element.includes("#linkedIn"))[0]
+    ?.split("=")
+    .filter((item) => !item.includes("FR-CA"))[1]
+    .split("</")[0];
   const facebook = content
     .filter((element) => element.includes("#facebook"))[0]
     ?.split("=")
@@ -106,6 +117,8 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
   const getLastNameLength = (fullname) => {
     return fullname?.split(" ").slice(1, 5).join(" ").length;
   };
+
+  console.log(linkedIn);
 
   return (
     <Section>
@@ -329,11 +342,11 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
           <div className="row">
             <div className="w-100">
               <div className="float-end">
-                <div className="d-flex mb-5 pb-5">
+                <div className="d-flex mb-5 pb-3 pt-5">
                   {facebook && (
                     <a
                       href={facebook}
-                      className="social-icons pe-3 envelope delay-13"
+                      className="social-icons pe-3"
                       target="_blank"
                       rel="noreferrer noopener"
                     >
@@ -352,7 +365,7 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
                   {instagram && (
                     <a
                       href={instagram}
-                      className="social-icons pe-3 envelope delay-14"
+                      className="social-icons pe-3"
                       target="_blank"
                       rel="noreferrer noopener"
                     >
@@ -369,10 +382,29 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
                       />
                     </a>
                   )}
+                  {linkedIn && (
+                    <a
+                      href={linkedIn}
+                      className="social-icons pe-3"
+                      target="_blank"
+                      rel="noreferrer noopener"
+                    >
+                      <img
+                        src={LinkedInSrc || socialIcons["linkedIn"].src}
+                        onMouseOver={(e) => {
+                          e.currentTarget.src = socialIcons["linkedIn"].blueSrc;
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.src = socialIcons["linkedIn"].src;
+                        }}
+                        alt={"LinkedIn"}
+                      />
+                    </a>
+                  )}
                   {vimeo && (
                     <a
                       href={vimeo}
-                      className="social-icons pe-3 envelope delay-15"
+                      className="social-icons pe-3"
                       target="_blank"
                       rel="noreferrer noopener"
                     >
