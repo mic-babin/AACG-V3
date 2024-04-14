@@ -16,13 +16,17 @@ export const Style = styled.div`
       font-size: 10px !important;
     }
   }
+  .custom-dot-list-style {
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
 
   .dots {
     height: 12px;
     width: 12px;
     border: 1px solid white;
     padding: 0;
-    margin: 2rem 0.5rem;
+    margin: 0rem 0.5rem;
     transform: translateY(-40px);
     &.active {
       background-color: white;

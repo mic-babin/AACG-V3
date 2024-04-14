@@ -40,6 +40,7 @@ const BioCarousel = (props) => {
             autoPlaySpeed={false}
             showDots={imgArr.length > 1 ? true : false}
             customDot={<CustomDot />}
+            dotListClass="custom-dot-list-style"
             ssr={true}
           >
             {images.map((image, index) => (

@@ -27,6 +27,7 @@ const ModalCarousel = ({ show, handleClose, imgArr }) => {
               autoPlaySpeed={false}
               showDots={imgArr.length > 1 ? true : false}
               customDot={<CustomDot />}
+              dotListClass="custom-dot-list-style"
               ssr={true}
             >
               {imgArr.map((image, index) => (
