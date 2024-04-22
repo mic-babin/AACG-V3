@@ -336,7 +336,13 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
                     </a>
                   </motion.div>
                 </div>
-                <div className="d-flex ps-2">
+                <motion.div
+                  className="d-flex ps-2"
+                  initial="hidden"
+                  animate="visible"
+                  variants={veryLittleFadeUpVariants}
+                  transition={{ duration: 0.75, delay: 1.55 }}
+                >
                   {facebook && (
                     <a
                       href={facebook}
@@ -414,7 +420,7 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
                       />
                     </a>
                   )}
-                </div>
+                </motion.div>
               </div>
             </div>
             <div className="col-lg-6 ps-0 px-md-2 mt-5 mt-lg-0 mb-5 pb-5">
