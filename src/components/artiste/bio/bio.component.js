@@ -312,37 +312,31 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
                   </motion.div>
                 )}
               </div>
-              <div className="ps-6 mt-5 pt-5 d-flex">
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={veryLittleFadeUpVariants}
-                  transition={{ duration: 0.75, delay: 1.4 }}
-                >
-                  <a target="_blank" href={bio} download={`${slug}-bio.pdf`}>
-                    <button className="me-4 mb-4 ">Ouvrir la bio</button>
-                  </a>
-                </motion.div>
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={veryLittleFadeUpVariants}
-                  transition={{ duration: 0.75, delay: 1.45 }}
-                >
-                  <a target="_blank" href={cv} download={`${slug}-cv.pdf`}>
-                    <button className="">Ouvrir le CV</button>
-                  </a>
-                </motion.div>
-              </div>
-            </div>
-            <div className="col-lg-6 ps-0 px-md-2 mt-5 mt-lg-0">
-              {bioImageArr.length > 0 && <BioCarousel imgArr={bioImageArr} />}
-            </div>
-          </div>
-          <div className="row">
-            <div className="w-100">
-              <div className="float-end">
-                <div className="d-flex mb-5 pb-3 pt-5">
+
+              <div className="ps-6 mt-5 pt-5">
+                <div className="d-flex">
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={veryLittleFadeUpVariants}
+                    transition={{ duration: 0.75, delay: 1.4 }}
+                  >
+                    <a target="_blank" href={bio} download={`${slug}-bio.pdf`}>
+                      <button className="me-4 mb-4 ">Ouvrir la bio</button>
+                    </a>
+                  </motion.div>
+                  <motion.div
+                    initial="hidden"
+                    animate="visible"
+                    variants={veryLittleFadeUpVariants}
+                    transition={{ duration: 0.75, delay: 1.45 }}
+                  >
+                    <a target="_blank" href={cv} download={`${slug}-cv.pdf`}>
+                      <button className="">Ouvrir le CV</button>
+                    </a>
+                  </motion.div>
+                </div>
+                <div className="d-flex ps-2">
                   {facebook && (
                     <a
                       href={facebook}
@@ -422,6 +416,9 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
                   )}
                 </div>
               </div>
+            </div>
+            <div className="col-lg-6 ps-0 px-md-2 mt-5 mt-lg-0 mb-5 pb-5">
+              {bioImageArr.length > 0 && <BioCarousel imgArr={bioImageArr} />}
             </div>
           </div>
         </div>
