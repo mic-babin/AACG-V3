@@ -55,10 +55,10 @@ const Footer = () => {
             <div className="d-flex flex-column align-items-center d-sm-block float-sm-end pe-xl-5">
               <h4 className="mb-3 pb-2 text-white">Visitez-nous</h4>
               <div className="smoll text-white mb-2 pb-1">
-                2025A rue Masson #101-J
+                5425 rue de Bordeaux #101-J
               </div>
               <div className="smoll text-white mb-2 pb-1">
-                Montréal, Québec H2H 2P7
+                Montréal, Québec H2H 2P9
               </div>
             </div>
           </div>
