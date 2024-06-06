@@ -6,6 +6,7 @@ import PlaySrc from "../../../assets/img/icons/play.svg";
 import PauseSrc from "../../../assets/img/icons/pause.svg";
 
 const Player = ({ audio }) => {
+  console.log(audio.description);
   const audioPlayerRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
@@ -49,21 +50,26 @@ const Player = ({ audio }) => {
       </div>
 
       <div className="flex-grow-1 px-4 mx-3 ">
-        <p
-          className="text-black mb-0"
-          dangerouslySetInnerHTML={{
-            __html: audio.caption.slice(3, audio.caption.length - 5),
-          }}
-        ></p>
-        <p
-          className="description"
-          dangerouslySetInnerHTML={{
-            __html: audio.description.slice(
-              audio.description.indexOf("p>") + 2,
-              audio.description.length - 5
-            ),
-          }}
-        ></p>
+        {audio.caption && (
+          <p
+            className="text-black mb-0"
+            dangerouslySetInnerHTML={{
+              __html: audio.caption.slice(3, audio.caption.length - 5),
+            }}
+          ></p>
+        )}
+
+        {audio.description && (
+          <p
+            className="description"
+            dangerouslySetInnerHTML={{
+              __html: audio.description.slice(
+                audio.description.indexOf("p>") + 2,
+                audio.description.length - 5
+              ),
+            }}
+          ></p>
+        )}
         <AudioPlayer
           ref={audioPlayerRef}
           src={audio.mediaItemUrl}
