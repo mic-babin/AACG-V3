@@ -23,7 +23,7 @@ const ArtisteCard = ({ artist }) => {
       >
         <Link id={artist.slug} to={"/artistes/" + artist.slug}>
           <GatsbyImage
-            image={getImage(artist.featuredImage.node)}
+            image={getImage(artist.featuredImage?.node)}
             alt={artist.title}
             style={{ width: "100%" }}
             className="mb-4 pb-2"
