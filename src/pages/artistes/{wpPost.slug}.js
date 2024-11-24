@@ -23,12 +23,12 @@ const Artiste = ({ data }) => {
 
   const artistMedia = data.allWpMediaItem.nodes.filter((item) =>
     item.title
-      .toLowerCase()
-      .normalize("NFD")
+      ?.toLowerCase()
+      ?.normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .includes(
         slug
-          .toLowerCase()
+          ?.toLowerCase()
           .normalize("NFD")
           .replace(/[\u0300-\u036f]/g, "")
       )

@@ -92,7 +92,7 @@ export const getTag = (tag, tags, index, title) => {
 
   if (newTag.length > 0) {
     if (index !== 0) {
-      return newTag.toLowerCase();
+      return newTag?.toLowerCase();
     } else {
       return newTag;
     }

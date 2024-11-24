@@ -58,12 +58,12 @@ const MainNav = ({ artistes, tags }) => {
   const onSearchChange = () => {
     const filtered = artistes.filter((artist) =>
       artist.title
-        .toLowerCase()
+        ?.toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .includes(
           searchInput
-            .toLowerCase()
+            ?.toLowerCase()
             .normalize("NFD")
             .replace(/[\u0300-\u036f]/g, "")
         )
