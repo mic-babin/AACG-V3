@@ -6,6 +6,6 @@
   "author": "Netlify",
   "license": "MIT",
   "dependencies": {
-    "@netlify/plugin-gatsby": "3.8.0"
+    "@netlify/plugin-gatsby": "3.8.1"
   }
 }

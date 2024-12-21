@@ -88,6 +88,7 @@ const Bio = ({ content, title, slug, tags, bioImageArr }) => {
     ?.split("=")
     .filter((item) => !item.includes("FR-CA"))[1]
     .split("</")[0];
+
   const cv = content
     .filter((element) => element.includes("#cv"))[0]
     ?.split("=")

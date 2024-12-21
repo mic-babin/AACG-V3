@@ -23,7 +23,7 @@ const Artiste = ({ data }) => {
 
   const artistMedia = data.allWpMediaItem.nodes.filter((item) =>
     item.title
-      .toLowerCase()
+      ?.toLowerCase()
       .normalize("NFD")
       .replace(/[\u0300-\u036f]/g, "")
       .includes(
